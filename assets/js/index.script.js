@@ -41,27 +41,27 @@ class User {
     }
 }
 
-class ListUser {
+class listUser {
     constructor() {
         this.people = [];
     }
     add(User) {
             if(isAnyInputEmpty()) {
                sendErrorMsg("Preencha os campos");
-            }else if (!valida_cpf(user.cpf)){
+            }else if (!valida_cpf(User.cpf)){
                sendErrorMsg("CPF inválido")
-            } else if (isUserAlreadyRegistered(user.cpf)){
+            } else if (isUserAlreadyRegistered(User.cpf)){
              sendErrorMsg ("CPF já cadastrado")
             }else {
             sendsucessMsg("Você está na lista de espera!")
-            push.user
+            this.people.push(User)
             clearInputs();
         }
        }
       
 }
 
-const listpeople = new ListUser()
+const listpeople = new listUser()
 
 function createUser() {
     const name = document.getElementById("name").value;
@@ -70,7 +70,6 @@ function createUser() {
     const address = document.getElementById("address").value;
     const phone = document.getElementById("phone").value;
     const cpf = document.getElementById("cpf").value;
-
 
     const user = new User(name, email, birthdate, address, phone, cpf);
     console.log(user);
@@ -84,7 +83,10 @@ function showUsers() {
     document.getElementById("sub-div").classList.add("hidden");
     document.getElementById("title-page").classList.remove("hidden");
     document.getElementById("main-div").classList.remove("hidden");
-    //console.log(createUser())
+
+    console.log(createUser())
+
+
 }
 
 function isAnyInputEmpty() {
@@ -148,7 +150,6 @@ function formatedCellphone(cellphone) {
 
 function valida_cpf(cpf) {
     console.log("Passou pela funcao valida_cpf()");
-
     var numeros, digitos, soma, i, resultado, digitos_iguais;
     digitos_iguais = 1;
     if (cpf.length < 11)
